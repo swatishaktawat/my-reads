@@ -1,0 +1,39 @@
+{% extends 'books/base.html' %}
+{% comment %} {% block body %}
+<div class="col-md-6 offset-md-3">
+    <h1>Welcome to books website!!</h1>
+</div><br>
+{% for item in book_list %}
+    <div class="row">
+        <div class="col-md-2 offset-md-1">
+            <img src="{{item.image}}" alt="not found" height=100px width=100px>
+        </div>
+        <div class="col-md-3 ">
+            <a href=" {% url 'books:detail' pk=item.pk %} "><h4>{{item.name}}</h4></a>
+        </div>
+        <div class="col-md-2">
+            Author : {{item.author}}
+        </div>
+        
+       
+    </div><br>
+{% endfor %}
+{% endblock body %} {% endcomment %}
+
+
+{% block body %}
+<script src="https://code.responsivevoice.org/responsivevoice.js?key=OklGYQuL"></script>
+<div class="row bg-light mt-5">
+{% for item in book_list %}
+<div class="col-md-2">
+    <div class="card">
+        <img src="{{item.image}}" class="card-img-top" alt="image not found" style="height=10px; width=100%">
+        <div class="card-body">
+            <h5 class="card-title">{{item.name}}</h5>
+            <a href="{% url 'books:detail' pk=item.pk %}" class="btn btn-primary">Details</a>
+        </div>
+  </div>
+</div>
+{% endfor %}
+</div>
+{% endblock body %}

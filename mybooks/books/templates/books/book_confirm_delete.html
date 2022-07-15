@@ -1,0 +1,16 @@
+{% extends 'books/base.html' %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-4 mt-5 offset-md-4">
+    <form method='POST'> 
+        {% csrf_token %}
+        <h4>Do you want to remove this from your book list?</h4><br>
+        <input type="submit" class='btn btn-danger' value='Yes, remove it!'>
+        <a href="{% url 'books:detail' pk=book.pk %}" class='btn btn-success'>No, keep it!</a>
+    </form>
+    </div>
+</div>
+
+    
+{% endblock body %}
